@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using System.Configuration;
+using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
+using ProjektAPI.Services;
 
 namespace ProjektAPI.Controllers;
 
@@ -8,19 +11,29 @@ public class BusController : ControllerBase
     // GET
     [HttpGet]
     [Route("GetBuses")]
-    public string GetBuses()
+    public List<Bus> GetBuses()
     {
-            // connect to database mysql 
-        using (MySqlConnection con = new MySqlConnection("server=mysql-mattu.alwaysdata.net;user=mattu;password=Messi1010@;database=mattu_db"))
+        List<Bus> buses = new List<Bus>();
+        // connect to database mysql 
+        string connectionString = "server=mysql-mattu.alwaysdata.net;user=mattu;password=Messi1010@;database=mattu_db";
+
+        using (MySqlConnection con = new MySqlConnection(connectionString))
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM test", con);
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Buses", con);
             MySqlDataReader reader = cmd.ExecuteReader();
                 
             while(reader.Read())
             {
-                Console.WriteLine(reader.GetString(0));
+                Bus bus = new Bus();
+                bus.Id = reader.GetInt32("Id");
+                bus.Brand = reader.GetString("Brand");
+                bus.Model = reader.GetString("Model");
+                buses.Add(bus);
             } 
+            reader.Close();
         }
-            return "Solaris Urbino 12";
+
+        return buses;
     }
 }
