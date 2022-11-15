@@ -1,6 +1,4 @@
-﻿
-using System.Configuration;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using ProjektAPI.Services;
 
@@ -22,15 +20,16 @@ public class BusController : ControllerBase
             con.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM Buses", con);
             MySqlDataReader reader = cmd.ExecuteReader();
-                
-            while(reader.Read())
+
+            while (reader.Read())
             {
                 Bus bus = new Bus();
                 bus.Id = reader.GetInt32("Id");
                 bus.Brand = reader.GetString("Brand");
                 bus.Model = reader.GetString("Model");
                 buses.Add(bus);
-            } 
+            }
+
             reader.Close();
         }
 
