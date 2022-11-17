@@ -2,6 +2,7 @@
 
 public class Bus
 {
+
     public int Id { get; set; }
     
     public string Brand { get; set; }
