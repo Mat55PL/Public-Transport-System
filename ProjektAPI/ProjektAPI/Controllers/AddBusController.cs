@@ -13,8 +13,8 @@ public class AddBusController : ControllerBase
     
     public HttpResponseMessage Post (Bus bus)
     {
-        string connectionString = "server=mysql-mattu.alwaysdata.net;user=mattu;password=8421test@;database=mattu_db";
-        using (MySqlConnection connection = new MySqlConnection(connectionString))
+        string connString = ConfigurationManager.AppSetting["connectionString"]; //connection string from json file
+        using (MySqlConnection connection = new MySqlConnection(connString))
         {
             try
             {

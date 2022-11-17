@@ -6,9 +6,8 @@ public class BusService
     {
         List<Bus> buses = new List<Bus>();
         // connect to database mysql 
-        string connectionString = "server=mysql-mattu.alwaysdata.net;user=mattu;password=8421test@;database=mattu_db";
-
-        using (MySqlConnection con = new MySqlConnection(connectionString))
+        string connString = ConfigurationManager.AppSetting["connectionString"]; //connection string from json file
+        using (MySqlConnection con = new MySqlConnection(connString))
         {
             con.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM Buses", con);

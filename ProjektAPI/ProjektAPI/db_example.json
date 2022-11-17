@@ -1,0 +1,3 @@
+﻿{
+  "connectionString" : "server=SERVER;user=YOURDBUSER;password=USERDBPASSWORD;database=YOURDBNAME"
+}

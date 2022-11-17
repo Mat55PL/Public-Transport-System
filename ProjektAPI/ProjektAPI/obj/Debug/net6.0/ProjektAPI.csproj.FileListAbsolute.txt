@@ -95,3 +95,4 @@ C:\Git\Public-Transport-System\ProjektAPI\ProjektAPI\obj\Debug\net6.0\refint\Pro
 C:\Git\Public-Transport-System\ProjektAPI\ProjektAPI\obj\Debug\net6.0\ProjektAPI.pdb
 C:\Git\Public-Transport-System\ProjektAPI\ProjektAPI\obj\Debug\net6.0\ProjektAPI.genruntimeconfig.cache
 C:\Git\Public-Transport-System\ProjektAPI\ProjektAPI\obj\Debug\net6.0\ref\ProjektAPI.dll
+G:\Git\Public-Transport-System\ProjektAPI\ProjektAPI\bin\Debug\net6.0\db.json
