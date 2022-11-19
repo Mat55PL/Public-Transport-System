@@ -7,7 +7,7 @@ namespace ProjektAPI.Controllers;
 
 public class AddBusController : ControllerBase
 {
-    // GET
+    // POST
     [HttpPost]
     [Route("AddBus")]
     

@@ -97,3 +97,5 @@ C:\Git\Public-Transport-System\ProjektAPI\ProjektAPI\obj\Debug\net6.0\ProjektAPI
 C:\Git\Public-Transport-System\ProjektAPI\ProjektAPI\obj\Debug\net6.0\ref\ProjektAPI.dll
 G:\Git\Public-Transport-System\ProjektAPI\ProjektAPI\bin\Debug\net6.0\db.json
 G:\Git\Public-Transport-System\ProjektAPI\ProjektAPI\bin\Debug\net6.0\db_example.json
+C:\Git\Public-Transport-System\ProjektAPI\ProjektAPI\bin\Debug\net6.0\db.json
+C:\Git\Public-Transport-System\ProjektAPI\ProjektAPI\bin\Debug\net6.0\db_example.json
