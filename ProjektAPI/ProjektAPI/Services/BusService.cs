@@ -12,7 +12,6 @@ public class BusService
             con.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM Buses", con);
             MySqlDataReader reader = cmd.ExecuteReader();
-
             while (reader.Read())
             {
                 Bus bus = new Bus();
@@ -21,7 +20,6 @@ public class BusService
                 bus.Model = reader.GetString("Model");
                 buses.Add(bus);
             }
-
             reader.Close();
         }
 
