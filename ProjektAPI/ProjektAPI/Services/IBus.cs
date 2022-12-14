@@ -8,4 +8,6 @@ public interface IBus
     string Brand { get; set; }
     
     string Model { get; set; }
+    
+    int Year { get; set; }
 }

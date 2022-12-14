@@ -18,8 +18,10 @@ public class BusService
                 bus.Id = reader.GetInt32("Id");
                 bus.Brand = reader.GetString("Brand");
                 bus.Model = reader.GetString("Model");
+                bus.Year = reader.GetInt32("Year");
                 buses.Add(bus);
             }
+            con.Close();
             reader.Close();
         }
 

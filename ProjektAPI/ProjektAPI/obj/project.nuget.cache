@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "r/urqSs3N3VXqMV+QfTVEOQK6YQdM0fBuXlNO/heTFogxFcCSw8sFnFaEWBAdyUjWAm9t2scVn4l5Vg0sHuU0Q==",
+  "dgSpecHash": "mMIpI6DS8ORDIRMJav9LzYbZgtRve7SbDP828GPRMMYtFaC3QEx8ghjeHLzVs/k45CCZCdoSNwfQ9cvPlacu9A==",
   "success": true,
   "projectFilePath": "G:\\Git\\Public-Transport-System\\ProjektAPI\\ProjektAPI\\ProjektAPI.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,7 @@
     "C:\\Users\\mateu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\system.componentmodel.annotations\\6.0.0-preview.4.21253.7\\system.componentmodel.annotations.6.0.0-preview.4.21253.7.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",

@@ -10,6 +10,7 @@
     <PackageReference Include="MySql.Data" Version="8.0.31" />
     <PackageReference Include="MySqlConnector" Version="2.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.4.21253.7" />
   </ItemGroup>
 
 </Project>
