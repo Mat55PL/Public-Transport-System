@@ -29,7 +29,7 @@ public class BusController : ControllerBase
             {
                 connection.Open();
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO Buses (Brand, Model, Year) VALUES (@Brand, @Model, @Year)";
+                command.CommandText = $"INSERT INTO Bus (Brand, Model, Year) VALUES (@Brand, @Model, @Year)";
                 //command.Parameters.AddWithValue("@Id", bus.Id);
                 command.Parameters.AddWithValue("@Brand", bus.Brand);
                 command.Parameters.AddWithValue("@Model", bus.Model);
@@ -59,7 +59,7 @@ public class BusController : ControllerBase
             {
                 connection.Open();
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM Buses WHERE Id = @Id";
+                command.CommandText = "SELECT * FROM Bus WHERE Id = @Id";
                 command.Parameters.AddWithValue("@Id", id);
                 MySqlDataReader reader = command.ExecuteReader();
                 if (!reader.HasRows) //if no rows returned 404
@@ -91,7 +91,7 @@ public class BusController : ControllerBase
             connection.Open();
             var command = connection.CreateCommand();
             //check if bus exists
-            command.CommandText = "SELECT * FROM Buses WHERE Id = @Id";
+            command.CommandText = "SELECT * FROM Bus WHERE Id = @Id";
             command.Parameters.AddWithValue("@Id", ID);
             MySqlDataReader reader = command.ExecuteReader();
             if (!reader.HasRows) //if no rows returned 404
