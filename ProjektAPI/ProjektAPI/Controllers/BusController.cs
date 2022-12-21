@@ -60,14 +60,9 @@ public class BusController : ControllerBase
             {
                 connection.Open();
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM Bus WHERE Id = @Id";
+                command.CommandText = "DELETE FROM Bus WHERE Id = @Id";
                 command.Parameters.AddWithValue("@Id", id);
                 MySqlDataReader reader = command.ExecuteReader();
-                if (!reader.HasRows) //if no rows returned 404
-                {
-                    connection.Close();
-                    return new HttpResponseMessage(HttpStatusCode.NotFound);
-                }
                 connection.Close();
                 return new HttpResponseMessage(HttpStatusCode.OK); 
             }
