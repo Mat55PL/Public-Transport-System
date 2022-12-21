@@ -9,5 +9,6 @@ public interface IBus
     
     string Model { get; set; }
     
+    string Number { get; set; }
     int Year { get; set; }
 }

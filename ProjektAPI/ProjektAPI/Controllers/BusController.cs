@@ -29,10 +29,11 @@ public class BusController : ControllerBase
             {
                 connection.Open();
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = $"INSERT INTO Bus (Brand, Model, Year) VALUES (@Brand, @Model, @Year)";
+                command.CommandText = $"INSERT INTO Bus (Brand, Model, Number, Year) VALUES (@Brand, @Model, @Number, @Year)";
                 //command.Parameters.AddWithValue("@Id", bus.Id);
                 command.Parameters.AddWithValue("@Brand", bus.Brand);
                 command.Parameters.AddWithValue("@Model", bus.Model);
+                command.Parameters.AddWithValue("@Number", bus.Number);
                 command.Parameters.AddWithValue("@Year", bus.Year);
                 command.ExecuteNonQuery();
                 connection.Close();
@@ -82,7 +83,7 @@ public class BusController : ControllerBase
     [HttpPut]
     [Route("UpdateBus")]
 
-    public HttpResponseMessage UpdateBus([FromQuery] int ID, [FromQuery] string Brand, [FromQuery] string Model, [FromQuery] int Year) // Pobiera wartości z ciągu zapytania.
+    public HttpResponseMessage UpdateBus([FromQuery] int ID, [FromQuery] string Brand, [FromQuery] string Model, [FromQuery] string Number, [FromQuery] int Year) // Pobiera wartości z ciągu zapytania.
     {
         try
         {
@@ -114,6 +115,11 @@ public class BusController : ControllerBase
             {
                 command.CommandText = "UPDATE Buses SET Year = @Year WHERE Id = @BusID";
                 command.Parameters.AddWithValue("@Year", Year);
+            }
+            if (Number != null)
+            {
+                command.CommandText = "UPDATE Buses SET Number = @Number WHERE Id = @BusID";
+                command.Parameters.AddWithValue("@Number", Number);
             }
             command.Parameters.AddWithValue("@BusID", ID);
             command.ExecuteNonQuery();
