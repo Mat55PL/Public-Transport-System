@@ -7,7 +7,6 @@ namespace ProjektAPI.Controllers;
 public class StopController : ControllerBase
 {
     [HttpGet]
-
     [Route("GetStop")]
     public List<Stop> GetStops(int id)
     {

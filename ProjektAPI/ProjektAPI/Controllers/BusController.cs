@@ -30,7 +30,7 @@ public class BusController : ControllerBase
                 connection.Open();
                 MySqlCommand command = connection.CreateCommand();
                 command.CommandText = $"INSERT INTO Bus (Brand, Model, Number, Year) VALUES (@Brand, @Model, @Number, @Year)";
-                //command.Parameters.AddWithValue("@Id", bus.Id);
+                //command.Parameters.AddWithValue("@Id", bus.Id); // bus.Id is not needed - DB has ID set as Auto Increment
                 command.Parameters.AddWithValue("@Brand", bus.Brand);
                 command.Parameters.AddWithValue("@Model", bus.Model);
                 command.Parameters.AddWithValue("@Number", bus.Number);

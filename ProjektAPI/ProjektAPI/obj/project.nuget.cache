@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mMIpI6DS8ORDIRMJav9LzYbZgtRve7SbDP828GPRMMYtFaC3QEx8ghjeHLzVs/k45CCZCdoSNwfQ9cvPlacu9A==",
+  "dgSpecHash": "nDtkDrgPV+ML7P0alMXV0z9lkKdvl8bzN2FHX8spnL+/oj6foSm0MCYGKbthrd8zh5Mr6eurOWvnCv3lV5v3tw==",
   "success": true,
-  "projectFilePath": "G:\\Git\\Public-Transport-System\\ProjektAPI\\ProjektAPI\\ProjektAPI.csproj",
+  "projectFilePath": "C:\\Git\\Public-Transport-System\\ProjektAPI\\ProjektAPI\\ProjektAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mateu\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
