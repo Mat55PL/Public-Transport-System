@@ -85,7 +85,7 @@ public class BusController : ControllerBase
             var connectionString = ConfigurationManager.AppSetting["connectionString"];
             var connection = new MySqlConnection(connectionString);
             connection.Open();
-            var command = connection.CreateCommand();
+            MySqlCommand command = connection.CreateCommand();
             //check if bus exists
             command.CommandText = "SELECT * FROM Bus WHERE Id = @Id";
             command.Parameters.AddWithValue("@Id", ID);
@@ -116,7 +116,7 @@ public class BusController : ControllerBase
                 command.CommandText = "UPDATE Buses SET Number = @Number WHERE Id = @BusID";
                 command.Parameters.AddWithValue("@Number", Number);
             }
-            command.Parameters.AddWithValue("@BusID", ID);
+            reader.Close();
             command.ExecuteNonQuery();
             connection.Close();
             return new HttpResponseMessage(HttpStatusCode.OK);
