@@ -19,17 +19,15 @@ public class LineController
     public HttpResponseMessage AddLine(Line line)
     {
         LineService lineService = new LineService();
-        lineService.AddLine(line);
-        return new HttpResponseMessage(HttpStatusCode.OK);
+        return lineService.AddLine(line);
     }
     
     [HttpPut]
     [Route("UpdateLine")]
-    public HttpResponseMessage UpdateLine([FromQuery] int ID, [FromQuery] string LineNumber, [FromQuery] int StopAID, [FromQuery] int StopBID)
+    public HttpResponseMessage UpdateLine([FromQuery] int id, [FromQuery] string lineNumber, [FromQuery] int stopAid, [FromQuery] int stopBid)
     {
-        LineService lineService = new LineService();
-        lineService.UpdateLine(ID, LineNumber, StopAID, StopBID);
-        return new HttpResponseMessage(HttpStatusCode.OK);
+        LineService lineService = new LineService(); 
+        return lineService.UpdateLine(id, lineNumber, stopAid, stopBid);
     }
     
     [HttpDelete]
@@ -37,7 +35,7 @@ public class LineController
     public HttpResponseMessage DeleteLine(int id)
     {
         LineService lineService = new LineService();
-        lineService.DeleteLine(id);
-        return new HttpResponseMessage(HttpStatusCode.OK);
+        return lineService.DeleteLine(id);
+        
     }
 }

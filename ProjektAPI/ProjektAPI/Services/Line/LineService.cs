@@ -8,7 +8,7 @@ public class LineService
 {
     public List<Line> GetLines(int id)
     {
-        string connString = ConfigurationManager.AppSetting["connectionString"];
+        string connString = DBManager.AppSetting["connectionString"];
         List<Line> lines = new List<Line>();
         using (MySqlConnection con = new MySqlConnection(connString))
         {
@@ -16,13 +16,12 @@ public class LineService
             {
                 var sqlString =
                     "SELECT Line.LineId, Line.LineNumber, Line.StopAID, StopA.StopName AS 'StopA', Line.StopBID, StopB.StopName AS 'StopB' FROM Line";
+                sqlString +=
+                    " JOIN Stops AS StopA ON Line.StopAID = StopA.StopId JOIN Stops AS StopB ON Line.StopBID = StopB.StopId";
                 if (id > 0)
                 {
                     sqlString += " WHERE LineId = @id";
                 }
-
-                sqlString +=
-                    " JOIN Stops AS StopA ON Line.StopAID = StopA.StopId JOIN Stops AS StopB ON Line.StopBID = StopB.StopId";
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(sqlString, con);
                 cmd.Parameters.AddWithValue("@id", id);
@@ -55,7 +54,7 @@ public class LineService
     //function add new line
     public HttpResponseMessage AddLine(Line line)
     {
-        string connString = ConfigurationManager.AppSetting["connectionString"];
+        string connString = DBManager.AppSetting["connectionString"];
         using (MySqlConnection con = new MySqlConnection(connString))
         {
             try
@@ -85,7 +84,7 @@ public class LineService
     {
         try
         {
-            string connString = ConfigurationManager.AppSetting["connectionString"];
+            string connString = DBManager.AppSetting["connectionString"];
             var connection = new MySqlConnection(connString);
             connection.Open();
             MySqlCommand command = connection.CreateCommand();
@@ -131,7 +130,7 @@ public class LineService
     //function delete line
     public HttpResponseMessage DeleteLine(int id)
     {
-        string connString = ConfigurationManager.AppSetting["connectionString"];
+        string connString = DBManager.AppSetting["connectionString"];
         using (MySqlConnection con = new MySqlConnection(connString))
         {
             try

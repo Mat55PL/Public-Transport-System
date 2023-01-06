@@ -1,10 +1,10 @@
 ﻿
 namespace ProjektAPI
 {
-    static class ConfigurationManager
+    static class DBManager
     {
         public static IConfiguration AppSetting { get; }
-        static ConfigurationManager()
+        static DBManager()
         {
             AppSetting = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())

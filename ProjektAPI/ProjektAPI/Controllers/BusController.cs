@@ -2,49 +2,30 @@
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using ProjektAPI.Services;
+using ProjektAPI.Services.Bus;
+
 
 namespace ProjektAPI.Controllers;
 
-public class BusController : ControllerBase
+public class BusController 
 {
     // GET
     [HttpGet]
     [Route("GetBuses")]
-    public List<Bus> GetBuses()
-    {
-        BusService busService = new();
-        return busService.GetBuses();
+    public List<Bus> GetBuses(int id)
+    { 
+        BusService busService = new BusService();
+        return busService.GetBuses(id);
     }
     
     // POST (SET)
     [HttpPost]
     [Route("AddBus")]
     
-    public HttpResponseMessage Post (Bus bus)
+    public HttpResponseMessage AddBus (Bus bus)
     {
-        string connString = ConfigurationManager.AppSetting["connectionString"]; //connection string from json file
-        using (MySqlConnection connection = new MySqlConnection(connString))
-        {
-            try
-            {
-                connection.Open();
-                MySqlCommand command = connection.CreateCommand();
-                command.CommandText = $"INSERT INTO Bus (Brand, Model, Number, Year) VALUES (@Brand, @Model, @Number, @Year)";
-                //command.Parameters.AddWithValue("@Id", bus.Id); // bus.Id is not needed - DB has ID set as Auto Increment
-                command.Parameters.AddWithValue("@Brand", bus.Brand);
-                command.Parameters.AddWithValue("@Model", bus.Model);
-                command.Parameters.AddWithValue("@Number", bus.Number);
-                command.Parameters.AddWithValue("@Year", bus.Year);
-                command.ExecuteNonQuery();
-                connection.Close();
-                return new HttpResponseMessage(HttpStatusCode.OK); 
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                throw new CustomException.InvalidDepartmentException("Error while adding bus: " + e.Message);
-            }
-        }
+       BusService busService = new BusService();
+       return busService.AddBus(bus);
     }
     
     // Delete
@@ -52,26 +33,8 @@ public class BusController : ControllerBase
     [Route("DeleteBus")]
     public HttpResponseMessage DeleteBus(int id)
     {
-        try
-        {
-            string connString = ConfigurationManager.AppSetting["connectionString"]; //connection string from json file
-            //check if bus exists
-            using (MySqlConnection connection = new MySqlConnection(connString))
-            {
-                connection.Open();
-                MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "DELETE FROM Bus WHERE Id = @Id";
-                command.Parameters.AddWithValue("@Id", id);
-                MySqlDataReader reader = command.ExecuteReader();
-                connection.Close();
-                return new HttpResponseMessage(HttpStatusCode.OK); 
-            }
-        } catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-            throw new CustomException.InvalidDepartmentException("Error: " + e.Message);
-        }
-        
+        BusService busService = new BusService();
+        return busService.DeleteBus(id);
     }
     
     //Update
@@ -80,51 +43,8 @@ public class BusController : ControllerBase
 
     public HttpResponseMessage UpdateBus([FromQuery] int ID, [FromQuery] string Brand, [FromQuery] string Model, [FromQuery] string Number, [FromQuery] int Year) // Pobiera wartości z ciągu zapytania.
     {
-        try
-        {
-            var connectionString = ConfigurationManager.AppSetting["connectionString"];
-            var connection = new MySqlConnection(connectionString);
-            connection.Open();
-            MySqlCommand command = connection.CreateCommand();
-            //check if bus exists
-            command.CommandText = "SELECT * FROM Bus WHERE Id = @Id";
-            command.Parameters.AddWithValue("@Id", ID);
-            MySqlDataReader reader = command.ExecuteReader();
-            if (!reader.HasRows) //if no rows returned 404
-            {
-                connection.Close();
-                return new HttpResponseMessage(HttpStatusCode.NotFound);
-            }
-            // checking the values are empty and if so not changing them
-            if (Brand != null)
-            {
-                command.CommandText = "UPDATE Buses SET Brand = @Brand WHERE Id = @BusID";
-                command.Parameters.AddWithValue("@Brand", Brand);
-            }
-            if (Model != null)
-            {
-                command.CommandText = "UPDATE Buses SET Model = @Model WHERE Id = @BusID";
-                command.Parameters.AddWithValue("@Model", Model);
-            }
-            if (Year != 0)
-            {
-                command.CommandText = "UPDATE Buses SET Year = @Year WHERE Id = @BusID";
-                command.Parameters.AddWithValue("@Year", Year);
-            }
-            if (Number != null)
-            {
-                command.CommandText = "UPDATE Buses SET Number = @Number WHERE Id = @BusID";
-                command.Parameters.AddWithValue("@Number", Number);
-            }
-            reader.Close();
-            command.ExecuteNonQuery();
-            connection.Close();
-            return new HttpResponseMessage(HttpStatusCode.OK);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e + "Error: " + e.Message);
-            throw new CustomException.InvalidDepartmentException("Error: " + e.Message);
-        }
+        BusService busService = new BusService();
+        return busService.UpdateBus(ID, Brand, Model, Number, Year);
     }
 }
+
