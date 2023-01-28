@@ -8,7 +8,7 @@ public class LineService
 {
     public List<Line> GetLines(int id)
     {
-        string connString = DBManager.AppSetting["connectionString"];
+        string connString = DbManager.AppSetting["connectionString"];
         List<Line> lines = new List<Line>();
         using (MySqlConnection con = new MySqlConnection(connString))
         {
@@ -54,7 +54,7 @@ public class LineService
     //function add new line
     public HttpResponseMessage AddLine(Line line)
     {
-        string connString = DBManager.AppSetting["connectionString"];
+        string connString = DbManager.AppSetting["connectionString"];
         using (MySqlConnection con = new MySqlConnection(connString))
         {
             try
@@ -84,7 +84,7 @@ public class LineService
     {
         try
         {
-            string connString = DBManager.AppSetting["connectionString"];
+            string connString = DbManager.AppSetting["connectionString"];
             var connection = new MySqlConnection(connString);
             connection.Open();
             MySqlCommand command = connection.CreateCommand();
@@ -130,7 +130,7 @@ public class LineService
     //function delete line
     public HttpResponseMessage DeleteLine(int id)
     {
-        string connString = DBManager.AppSetting["connectionString"];
+        string connString = DbManager.AppSetting["connectionString"];
         using (MySqlConnection con = new MySqlConnection(connString))
         {
             try

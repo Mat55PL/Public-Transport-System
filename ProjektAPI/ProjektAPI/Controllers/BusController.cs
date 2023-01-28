@@ -13,7 +13,7 @@ public class BusController
     [HttpGet]
     [Route("GetBuses")]
     public List<Bus> GetBuses(int id)
-    { 
+    {
         BusService busService = new BusService();
         return busService.GetBuses(id);
     }

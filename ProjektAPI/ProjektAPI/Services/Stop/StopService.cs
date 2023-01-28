@@ -7,7 +7,7 @@ public class StopService
 {
     public List<Stop> GetStop(int id)
     {
-        string connString = DBManager.AppSetting["connectionString"];
+        string connString = DbManager.AppSetting["connectionString"];
         Console.WriteLine("Id to: " + id);
         List<Stop> stops = new List<Stop>();
         using (MySqlConnection con = new MySqlConnection(connString))
@@ -46,7 +46,7 @@ public class StopService
 
     public HttpResponseMessage AddStop(Stop stop)
     {
-        string connString = DBManager.AppSetting["connectionString"];
+        string connString = DbManager.AppSetting["connectionString"];
         using (MySqlConnection con = new MySqlConnection(connString))
         {
             try
@@ -72,7 +72,7 @@ public class StopService
     {
         try
         {
-            string connString = DBManager.AppSetting["connectionString"];
+            string connString = DbManager.AppSetting["connectionString"];
             var conn = new MySqlConnection(connString);
             conn.Open();
             MySqlCommand command = conn.CreateCommand();
@@ -108,7 +108,7 @@ public class StopService
 
     public HttpResponseMessage DeleteStop(int id)
     {
-        string connString = DBManager.AppSetting["connectionString"];
+        string connString = DbManager.AppSetting["connectionString"];
         using (MySqlConnection con = new MySqlConnection(connString))
         {
             try

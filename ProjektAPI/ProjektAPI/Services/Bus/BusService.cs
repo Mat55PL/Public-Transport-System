@@ -10,7 +10,7 @@ public class BusService
     {
         List<Bus> buses = new List<Bus>();
         // connect to database mysql 
-        string connString = DBManager.AppSetting["connectionString"]; //connection string from json file
+        string connString = DbManager.AppSetting["connectionString"]; //connection string from json file
         using (MySqlConnection con = new MySqlConnection(connString))
         {
             try
@@ -51,7 +51,7 @@ public class BusService
 
     public HttpResponseMessage AddBus(Bus bus)
     {
-        string connString = DBManager.AppSetting["connectionString"];
+        string connString = DbManager.AppSetting["connectionString"];
         using (MySqlConnection con = new MySqlConnection(connString))
         {
             try
@@ -78,7 +78,7 @@ public class BusService
     {
         try
         {
-            string connString = DBManager.AppSetting["connectionString"];
+            string connString = DbManager.AppSetting["connectionString"];
             var connection = new MySqlConnection(connString);
             connection.Open();
             MySqlCommand command = connection.CreateCommand();
@@ -124,7 +124,7 @@ public class BusService
     
     public HttpResponseMessage DeleteBus(int id)
     {
-        string connString = DBManager.AppSetting["connectionString"];
+        string connString = DbManager.AppSetting["connectionString"];
         using (MySqlConnection con = new MySqlConnection(connString))
         {
             try
