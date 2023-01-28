@@ -1,7 +1,7 @@
 
 # Public-Transport-System
 
-Projekt na przedmiot Programowanie Obiektowe
+Projekt na przedmiot Programowanie Obiektowe w .NET
 
 ## Dokumentacja
 
