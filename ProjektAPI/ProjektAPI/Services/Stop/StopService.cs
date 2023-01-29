@@ -68,7 +68,7 @@ public class StopService
         }
     }
 
-    public HttpResponseMessage UpdateStop(int id, string stopName, string city)
+    public HttpResponseMessage UpdateStop(int id, string? stopName, string? city)
     {
         try
         {

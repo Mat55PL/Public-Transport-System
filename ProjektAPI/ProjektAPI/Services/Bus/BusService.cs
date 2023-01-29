@@ -74,7 +74,7 @@ public class BusService
         }
     }
 
-    public HttpResponseMessage UpdateBus(int id, string brand, string model, string number, int year)
+    public HttpResponseMessage UpdateBus(int id, string? brand, string? model, string? number, int year)
     {
         try
         {

@@ -80,7 +80,7 @@ public class LineService
     }
     
     //function update line
-    public HttpResponseMessage UpdateLine([FromQuery] int ID, [FromQuery] string LineNumber, [FromQuery] int StopAID, [FromQuery] int StopBID)
+    public HttpResponseMessage UpdateLine([FromQuery] int ID, [FromQuery] string? LineNumber, [FromQuery] int StopAID, [FromQuery] int StopBID)
     {
         try
         {
