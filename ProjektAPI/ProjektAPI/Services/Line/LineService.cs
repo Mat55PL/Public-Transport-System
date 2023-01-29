@@ -6,10 +6,10 @@ namespace ProjektAPI.Services.Line;
 
 public class LineService
 {
-    public List<Line> GetLines(int id)
+    public List<ILine> GetLines(int id)
     {
         string connString = DbManager.AppSetting["connectionString"];
-        List<Line> lines = new List<Line>();
+        List<ILine> lines = new List<ILine>();
         using (MySqlConnection con = new MySqlConnection(connString))
         {
             try

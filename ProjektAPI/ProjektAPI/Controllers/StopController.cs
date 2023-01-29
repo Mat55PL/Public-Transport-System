@@ -10,7 +10,7 @@ public class StopController : ControllerBase
 {
     [HttpGet]
     [Route("GetStop")]
-    public List<Stop> GetStops(int id)
+    public List<IStop> GetStops(int id)
     {
         StopService stopService = new();
         return stopService.GetStop(id);

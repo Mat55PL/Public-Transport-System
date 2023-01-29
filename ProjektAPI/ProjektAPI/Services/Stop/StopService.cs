@@ -5,11 +5,11 @@ namespace ProjektAPI.Services.Stop;
 
 public class StopService
 {
-    public List<Stop> GetStop(int id)
+    public List<IStop> GetStop(int id)
     {
         string connString = DbManager.AppSetting["connectionString"];
         Console.WriteLine("Id to: " + id);
-        List<Stop> stops = new List<Stop>();
+        List<IStop> stops = new List<IStop>();
         using (MySqlConnection con = new MySqlConnection(connString))
         {
             try

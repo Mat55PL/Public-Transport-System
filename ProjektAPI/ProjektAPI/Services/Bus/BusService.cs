@@ -6,9 +6,9 @@ namespace ProjektAPI.Services.Bus;
 
 public class BusService
 {
-    public List<Bus> GetBuses(int id)
+    public List<IBus> GetBuses(int id)
     {
-        List<Bus> buses = new List<Bus>();
+        List<IBus> buses = new List<IBus>();
         // connect to database mysql 
         string connString = DbManager.AppSetting["connectionString"]; //connection string from json file
         using (MySqlConnection con = new MySqlConnection(connString))

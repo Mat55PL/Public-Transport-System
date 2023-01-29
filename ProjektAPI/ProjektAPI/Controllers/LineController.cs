@@ -8,7 +8,7 @@ public class LineController
 {
     [HttpGet]
     [Route("GetLines")]
-    public List<Line> GetLines(int id)
+    public List<ILine> GetLines(int id)
     {
         LineService lineService = new LineService();
         return lineService.GetLines(id);
